@@ -9,7 +9,7 @@ CREATE TABLE country_code (
 CREATE TABLE last_name (
   id UUID PRIMARY KEY,
   last_name VARCHAR(255) NOT NULL UNIQUE,
-  force_to_search BOOLEAN NOT NULL DEFAULT false,
+  force_to_search BOOLEAN NOT NULL DEFAULT true,
   created_at TIMESTAMP,
   updated_at TIMESTAMP
 );

@@ -24,7 +24,7 @@ LastName.init(
    },
    forceToSearch: {
      type: DataTypes.BOOLEAN,
-     defaultValue: false,
+     defaultValue: true,
      field: 'force_to_search',
    }
  },
