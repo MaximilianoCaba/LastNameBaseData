@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start:prod": "cross-env NODE_ENV=production ts-node src/index.ts",
+    "db:prod:migrate": "cross-env NODE_ENV=production sequelize db:migrate",
+    "db::prod:undo-migrate": "cross-env NODE_ENV=production sequelize db:migrate:undo"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +14,9 @@
   "devDependencies": {
     "@types/node": "^20.12.5",
     "@types/pg": "^8.11.4",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
+    "sequelize-cli": "^6.6.2",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
@@ -21,8 +25,10 @@
     "@types/puppeteer-core": "^2.0.0",
     "express": "^4.18.2",
     "pg": "^8.11.5",
-    "puppeteer": "19.2.0",
+    "puppeteer": "^19.2.0",
     "puppeteer-core": "19.2.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-adblocker": "^2.13.6",
     "sequelize": "^6.37.2"
   }
 }

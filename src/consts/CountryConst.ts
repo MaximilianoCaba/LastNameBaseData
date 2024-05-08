@@ -1,6 +1,6 @@
 import {CountryDto} from "../dto/CountryDto";
 
 export const countryConstList: CountryDto[] = [
-  {countryName: "venezuela", countryCode: "VE"},
-  {countryName: "colombia", countryCode: "CO"}
+  {id: 1, countryName: "venezuela", countryCode: "VE"},
+  {id: 2, countryName: "colombia", countryCode: "CO"}
 ]

@@ -1,4 +1,5 @@
 export interface CountryDto {
-  countryName: string
-  countryCode: string
+  id: number;
+  countryName: string;
+  countryCode: string;
 }

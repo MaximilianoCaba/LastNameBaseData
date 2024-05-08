@@ -2,30 +2,30 @@ import { DataTypes, Model } from 'sequelize'
 import { sequelize } from '../db'
 
 export class LastName extends Model {
-  public last_name!: string;
-  public count!: number;
-  public country_code!: string;
+  public id!: string
+  public lastName!: string;
+  public forceToSearch!: boolean;
   public readonly createdAt!: number;
   public readonly updatedAt!: number;
 }
 
 LastName.init(
  {
-   last_name: {
-     type: DataTypes.STRING,
+   id: {
+     type: DataTypes.UUID,
+     defaultValue: DataTypes.UUIDV4,
      primaryKey: true,
    },
-   count: {
-     type: DataTypes.NUMBER,
+   lastName: {
+     type: DataTypes.STRING,
      allowNull: false,
+     field: 'last_name',
+     unique: true
    },
-   country_code: {
-     type: DataTypes.STRING,
-     primaryKey: true,
-   },
-   lastUpdate: {
-     type: DataTypes.DATE,
-     allowNull: false
+   forceToSearch: {
+     type: DataTypes.BOOLEAN,
+     defaultValue: false,
+     field: 'force_to_search',
    }
  },
  {

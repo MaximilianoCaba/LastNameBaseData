@@ -1,6 +1,5 @@
 import {LastName} from "../models/LastName";
-import {Transaction} from "sequelize";
-import {LastNameDto} from "../dto/LastNameDto";
+import {Optional, Transaction} from "sequelize";
 
 export class LastNameRepository {
 
@@ -12,14 +11,10 @@ export class LastNameRepository {
     }
   }
 
-  public async bulkCreate(lastNameDtoList: LastNameDto[]): Promise<LastName[]> {
-    return LastName.bulkCreate(lastNameDtoList.map((lastNameDto) => ({
-      last_name: lastNameDto.last_name,
-      country_code: lastNameDto.country_code,
-      count: lastNameDto.count,
-    })), {
+  public async bulkCreate(lastNameDtoList: Optional<any, string>[]): Promise<LastName[]> {
+    return LastName.bulkCreate(lastNameDtoList, {
       transaction: this.transaction,
-      updateOnDuplicate: ["last_name", "country_code"]
+      updateOnDuplicate: ["lastName"]
     })
   }
 
