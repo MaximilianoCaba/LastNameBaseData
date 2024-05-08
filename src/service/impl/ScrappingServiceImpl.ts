@@ -8,7 +8,7 @@ export class ScrappingServiceImpl extends Puppeteer implements ScrappingService 
   public async getLastNameFromWeb(countryDto: CountryDto): Promise<LastNameDto[]> {
 
     const page = await this.getNewPage();
-    const allChars = 'a';
+    const allChars = 'abcdefghijklmnopqrstuvwxyz';
 
     const lastNameDtoList: LastNameDto[] = [];
 
